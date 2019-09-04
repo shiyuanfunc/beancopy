@@ -9,8 +9,8 @@ import java.util.Date;
  */
 public class TargetBean2 {
 
-    private Integer id;
-    private String productName;
+    public Integer id;
+    public String productName;
     private double price ;
     private int status ;
     private byte data ;

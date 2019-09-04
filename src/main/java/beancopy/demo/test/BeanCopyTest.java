@@ -20,10 +20,10 @@ import java.util.Map;
  * @Version 1.0
  */
 public class BeanCopyTest {
-    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
+    public static void main(String[] args) throws Exception {
 
         SourceBean sourceBean = new SourceBean();
-        sourceBean.setId(1);
+        sourceBean.setId(3);
         sourceBean.setProductName("商品名称");
         sourceBean.setPrice(10.3);
         sourceBean.setStatus(2);
@@ -32,12 +32,12 @@ public class BeanCopyTest {
 
         TargetBean targetBean = new TargetBean();
         TargetBean2 targetBean2 = new TargetBean2();
-
         beanCopyTest(sourceBean, targetBean);
 
-        //apacheMap2Bean();
-        //cglibBeanUtil(sourceBean , targetBean2);
-        //springBeanUtil(sourceBean , targetBean2);
+        apacheMap2Bean();
+        //apacheBeanUtil(sourceBean,targetBean2);
+        cglibBeanUtil(sourceBean , targetBean2);
+        springBeanUtil(sourceBean , targetBean2);
     }
 
     private static void beanCopyTest(SourceBean sourceBean, TargetBean targetBean) throws InvocationTargetException, IllegalAccessException {
@@ -79,17 +79,22 @@ public class BeanCopyTest {
         ConvertUtils.register(new IntegerConverter(null), Integer.class);
         ConvertUtils.register(new DoubleConverter(null) , Double.class);
         BeanUtils.populate(targetBean , param);
-        System.out.println(JSON.toJSONString(targetBean , SerializerFeature.WriteMapNullValue));
+        System.out.println("apache map 方式:"+JSON.toJSONString(targetBean , SerializerFeature.WriteMapNullValue));
+    }
+
+    public static void apacheBeanUtil(SourceBean sourceBean , TargetBean2 targetBean2) throws Exception{
+        BeanUtils.copyProperties(sourceBean,targetBean2);
+        System.out.println("apache 方式："+JSON.toJSONString(targetBean2 , SerializerFeature.WriteMapNullValue));
     }
 
     public static void cglibBeanUtil(SourceBean sourceBean , TargetBean2 targetBean2){
         BeanCopier beanCopier = BeanCopier.create(SourceBean.class , TargetBean2.class, false);
         beanCopier.copy(sourceBean,targetBean2,null);
-        System.out.println(JSON.toJSONString(targetBean2 , SerializerFeature.WriteMapNullValue));
+        System.out.println("cglib 方式:"+JSON.toJSONString(targetBean2 , SerializerFeature.WriteMapNullValue));
     }
 
     public static void springBeanUtil(SourceBean sourceBean , TargetBean2 targetBean2){
         org.springframework.beans.BeanUtils.copyProperties(sourceBean , targetBean2);
-        System.out.println(JSON.toJSONString(targetBean2 , SerializerFeature.WriteMapNullValue));
+        System.out.println("spring 方式："+JSON.toJSONString(targetBean2 , SerializerFeature.WriteMapNullValue));
     }
 }
