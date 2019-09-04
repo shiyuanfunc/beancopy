@@ -16,8 +16,6 @@ public class TargetBean2 {
     private byte data ;
     private Date createTime ;
 
-    private InnerVo innerVo ;
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -28,14 +26,6 @@ public class TargetBean2 {
 
     public Integer getId() {
         return id;
-    }
-
-    public InnerVo getInnerVo() {
-        return innerVo;
-    }
-
-    public void setInnerVo(InnerVo innerVo) {
-        this.innerVo = innerVo;
     }
 
     public void setId(Integer id) {
@@ -72,17 +62,5 @@ public class TargetBean2 {
 
     public void setData(byte data) {
         this.data = data;
-    }
-
-    class InnerVo{
-        private String name ;
-
-        public String getName() {
-            return name;
-        }
-
-        public void setName(String name) {
-            this.name = name;
-        }
     }
 }

@@ -16,6 +16,7 @@ public class TargetBean {
     private byte data ;
     private Date createTime ;
 
+
     public Date getCreateTime() {
         return createTime;
     }
@@ -62,10 +63,6 @@ public class TargetBean {
 
     public void setData(byte data) {
         this.data = data;
-    }
-
-    public String getText(){
-        return "dasda";
     }
 
 }

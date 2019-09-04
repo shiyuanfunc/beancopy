@@ -1,5 +1,6 @@
 package beancopy.demo.test;
 
+import beancopy.demo.test.base.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.apache.commons.beanutils.BeanUtils;
@@ -28,20 +29,23 @@ public class BeanCopyTest {
         sourceBean.setStatus(2);
         sourceBean.setData(new Byte("1"));
         sourceBean.setCreateTime(new Date());
-        SourceBean.InnerVo innerVo = new SourceBean().new InnerVo();
-        innerVo.setName("测试内部类");
-        sourceBean.setInnerVo(innerVo);
-
 
         TargetBean targetBean = new TargetBean();
         TargetBean2 targetBean2 = new TargetBean2();
 
+        beanCopyTest(sourceBean, targetBean);
 
+        //apacheMap2Bean();
+        //cglibBeanUtil(sourceBean , targetBean2);
+        //springBeanUtil(sourceBean , targetBean2);
+    }
+
+    private static void beanCopyTest(SourceBean sourceBean, TargetBean targetBean) throws InvocationTargetException, IllegalAccessException {
         IBeanCopy apacheBeanCopy = new ApacheBeanCopy();
         IBeanCopy cglibBeanCopy = new CglibBeanCopy();
         IBeanCopy springBeanCopy = new SpringBeanCopy();
         IBeanCopy javaBeanCopy = new JavaBeanCopy();
-        int count = 10000;
+        int count = 100000;
         System.out.print("apacheBeanCopy:");
         test(apacheBeanCopy , sourceBean,targetBean,count);
         System.out.print("cglibBeanCopy:");
@@ -50,10 +54,6 @@ public class BeanCopyTest {
         test(springBeanCopy , sourceBean,targetBean,count);
         System.out.print("javaBeanCopy:");
         test(javaBeanCopy , sourceBean,targetBean,count);
-
-        map2Bean();
-        cglibBeanUtil(sourceBean , targetBean2);
-        springBeanUtil(sourceBean , targetBean2);
     }
 
     public static void test(IBeanCopy beanCopy, SourceBean sourceBean , TargetBean targetBean,int count) throws InvocationTargetException, IllegalAccessException {
@@ -66,7 +66,7 @@ public class BeanCopyTest {
         System.out.println(JSON.toJSONString(targetBean, SerializerFeature.WriteMapNullValue));
     }
 
-    public static void map2Bean() throws InvocationTargetException, IllegalAccessException {
+    public static void apacheMap2Bean() throws InvocationTargetException, IllegalAccessException {
 
         Map<String, Object> param = new HashMap<>();
         param.put("id", 1);
@@ -76,8 +76,8 @@ public class BeanCopyTest {
         param.put("data",new Byte("1"));
 
         TargetBean targetBean = new TargetBean();
-//        ConvertUtils.register(new IntegerConverter(null), Integer.class);
-//        ConvertUtils.register(new DoubleConverter(null) , Double.class);
+        ConvertUtils.register(new IntegerConverter(null), Integer.class);
+        ConvertUtils.register(new DoubleConverter(null) , Double.class);
         BeanUtils.populate(targetBean , param);
         System.out.println(JSON.toJSONString(targetBean , SerializerFeature.WriteMapNullValue));
     }

@@ -1,4 +1,7 @@
-package beancopy.demo.test;
+package beancopy.demo.test.base;
+
+import beancopy.demo.test.SourceBean;
+import beancopy.demo.test.TargetBean;
 
 import java.lang.reflect.InvocationTargetException;
 
