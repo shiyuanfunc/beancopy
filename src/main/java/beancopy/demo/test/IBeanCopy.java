@@ -10,4 +10,5 @@ import java.lang.reflect.InvocationTargetException;
 public interface IBeanCopy {
 
     void copeBean(SourceBean sourceBean , TargetBean targetBean) throws InvocationTargetException, IllegalAccessException;
+    //void copeBean2(SourceBean sourceBean , TargetBean2 targetBean) throws InvocationTargetException, IllegalAccessException;
 }

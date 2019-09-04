@@ -1,5 +1,7 @@
 package beancopy.demo.test;
 
+import java.util.Date;
+
 /**
  * @author Song Yinghui
  * @date 2019/9/4
@@ -12,6 +14,9 @@ public class SourceBean {
     private Double price ;
     private Integer status ;
     private byte data ;
+    private Date createTime ;
+
+    private InnerVo innerVo ;
 
     public int getId() {
         return id;
@@ -52,4 +57,33 @@ public class SourceBean {
     public void setData(byte data) {
         this.data = data;
     }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public InnerVo getInnerVo() {
+        return innerVo;
+    }
+
+    public void setInnerVo(InnerVo innerVo) {
+        this.innerVo = innerVo;
+    }
+
+    class InnerVo{
+        private String name ;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+
 }

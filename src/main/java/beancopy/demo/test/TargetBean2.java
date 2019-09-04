@@ -7,14 +7,16 @@ import java.util.Date;
  * @date 2019/9/4
  * @Version 1.0
  */
-public class TargetBean {
+public class TargetBean2 {
 
-    private int id;
+    private Integer id;
     private String productName;
-    private Double price ;
-    private Integer status ;
+    private double price ;
+    private int status ;
     private byte data ;
     private Date createTime ;
+
+    private InnerVo innerVo ;
 
     public Date getCreateTime() {
         return createTime;
@@ -24,11 +26,19 @@ public class TargetBean {
         this.createTime = createTime;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public InnerVo getInnerVo() {
+        return innerVo;
+    }
+
+    public void setInnerVo(InnerVo innerVo) {
+        this.innerVo = innerVo;
+    }
+
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,19 +50,19 @@ public class TargetBean {
         this.productName = productName;
     }
 
-    public Double getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public Integer getStatus() {
+    public int getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
@@ -64,8 +74,15 @@ public class TargetBean {
         this.data = data;
     }
 
-    public String getText(){
-        return "dasda";
-    }
+    class InnerVo{
+        private String name ;
 
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
 }
