@@ -42,15 +42,15 @@ public class BeanCopyTest {
 
         TargetBean targetBean = new TargetBean();
         TargetBean2 targetBean2 = new TargetBean2();
-        beanCopyTest(sourceBean, targetBean);
+        //beanCopyTest(sourceBean, targetBean);
 
-        apacheMap2Bean();
+        //apacheMap2Bean();
         //apacheBeanUtil(sourceBean,targetBean2);
         cglibBeanUtil(sourceBean , targetBean2);
         springBeanUtil(sourceBean , targetBean2);
     }
 
-    private static void beanCopyTest(SourceBean sourceBean, TargetBean targetBean) throws InvocationTargetException, IllegalAccessException {
+    private static void beanCopyTest(SourceBean sourceBean, TargetBean targetBean) throws Exception {
         IBeanCopy apacheBeanCopy = new ApacheBeanCopy();
         IBeanCopy cglibBeanCopy = new CglibBeanCopy();
         IBeanCopy springBeanCopy = new SpringBeanCopy();

@@ -1,8 +1,6 @@
 package beancopy.demo.test.base;
 
 import beancopy.demo.test.SourceBean;
-import beancopy.demo.test.TargetBean;
-import beancopy.demo.test.base.IBeanCopy;
 import org.springframework.beans.BeanUtils;
 
 /**

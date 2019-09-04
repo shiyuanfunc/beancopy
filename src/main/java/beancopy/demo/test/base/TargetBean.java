@@ -1,4 +1,6 @@
-package beancopy.demo.test;
+package beancopy.demo.test.base;
+
+import beancopy.demo.test.ProductInfo;
 
 import java.util.Date;
 
@@ -47,7 +49,7 @@ public class TargetBean {
         return productName;
     }
 
-    public void setProductName(String productName) {
+    protected void setProductName(String productName) {
         this.productName = productName;
     }
 
@@ -55,7 +57,7 @@ public class TargetBean {
         return price;
     }
 
-    public void setPrice(Double price) {
+    protected void setPrice(Double price) {
         this.price = price;
     }
 
@@ -63,7 +65,7 @@ public class TargetBean {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    protected void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -71,7 +73,7 @@ public class TargetBean {
         return data;
     }
 
-    public void setData(byte data) {
+    protected void setData(byte data) {
         this.data = data;
     }
 
@@ -79,7 +81,7 @@ public class TargetBean {
         return productInfo;
     }
 
-    public void setProductInfo(ProductInfo productInfo) {
+    protected void setProductInfo(ProductInfo productInfo) {
         this.productInfo = productInfo;
     }
 
