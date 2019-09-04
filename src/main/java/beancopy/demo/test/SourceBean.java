@@ -16,6 +16,10 @@ public class SourceBean {
     private byte data ;
     private Date createTime ;
 
+    private ProductInfo productInfo ;
+
+//    private InnerVo innerVo ;
+
     public int getId() {
         return id;
     }
@@ -64,4 +68,31 @@ public class SourceBean {
         this.createTime = createTime;
     }
 
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
+//    public InnerVo getInnerVo() {
+//        return innerVo;
+//    }
+//
+//    public void setInnerVo(InnerVo innerVo) {
+//        this.innerVo = innerVo;
+//    }
+//
+//    public static class InnerVo{
+//        private String innerName ;
+//
+//        public String getInnerName() {
+//            return innerName;
+//        }
+//
+//        public void setInnerName(String innerName) {
+//            this.innerName = innerName;
+//        }
+//    }
 }

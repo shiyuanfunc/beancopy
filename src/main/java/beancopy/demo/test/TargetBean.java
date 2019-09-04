@@ -15,7 +15,17 @@ public class TargetBean {
     private Integer status ;
     private byte data ;
     private Date createTime ;
+    private ProductInfo productInfo ;
 
+//    private InnerVo innerVo ;
+//
+//    public InnerVo getInnerVo() {
+//        return innerVo;
+//    }
+//
+//    public void setInnerVo(InnerVo innerVo) {
+//        this.innerVo = innerVo;
+//    }
 
     public Date getCreateTime() {
         return createTime;
@@ -65,4 +75,23 @@ public class TargetBean {
         this.data = data;
     }
 
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
+    }
+
+//    public static class InnerVo{
+//        private String innerName ;
+//
+//        public String getInnerName() {
+//            return innerName;
+//        }
+//
+//        public void setInnerName(String innerName) {
+//            this.innerName = innerName;
+//        }
+//    }
 }

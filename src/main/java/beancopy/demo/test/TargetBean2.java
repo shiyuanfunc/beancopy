@@ -15,6 +15,7 @@ public class TargetBean2 {
     private int status ;
     private byte data ;
     private Date createTime ;
+    private ProductInfo productInfo ;
 
     public Date getCreateTime() {
         return createTime;
@@ -62,5 +63,13 @@ public class TargetBean2 {
 
     public void setData(byte data) {
         this.data = data;
+    }
+
+    public ProductInfo getProductInfo() {
+        return productInfo;
+    }
+
+    public void setProductInfo(ProductInfo productInfo) {
+        this.productInfo = productInfo;
     }
 }

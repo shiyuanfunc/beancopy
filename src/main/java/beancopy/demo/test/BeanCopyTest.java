@@ -25,10 +25,20 @@ public class BeanCopyTest {
         SourceBean sourceBean = new SourceBean();
         sourceBean.setId(3);
         sourceBean.setProductName("商品名称");
-        sourceBean.setPrice(10.3);
-        sourceBean.setStatus(2);
+        sourceBean.setPrice(10.54);
+        sourceBean.setStatus(5);
         sourceBean.setData(new Byte("1"));
         sourceBean.setCreateTime(new Date());
+
+        ProductInfo productInfo = new ProductInfo();
+        productInfo.setDesc("这是ProductInfo 描述");
+        productInfo.setId(100);
+        productInfo.setName("ProductInfo name");
+        sourceBean.setProductInfo(productInfo);
+
+//        SourceBean.InnerVo innerVo = new SourceBean.InnerVo();
+//        innerVo.setInnerName("innerVo Name");
+//        sourceBean.setInnerVo(innerVo);
 
         TargetBean targetBean = new TargetBean();
         TargetBean2 targetBean2 = new TargetBean2();
@@ -74,8 +84,13 @@ public class BeanCopyTest {
         param.put("price","");
         param.put("status","");
         param.put("data",new Byte("1"));
+        ProductInfo productInfo = new ProductInfo();
+        productInfo.setDesc("这是ProductInfo 描述");
+        productInfo.setId(100);
+        productInfo.setName("ProductInfo name");
+        param.put("productInfo" , productInfo);
 
-        TargetBean targetBean = new TargetBean();
+        TargetBean2 targetBean = new TargetBean2();
         ConvertUtils.register(new IntegerConverter(null), Integer.class);
         ConvertUtils.register(new DoubleConverter(null) , Double.class);
         BeanUtils.populate(targetBean , param);
