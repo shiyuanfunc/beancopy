@@ -17,25 +17,8 @@ public class TargetBean {
     private Integer status ;
     private byte data ;
     private Date createTime ;
+
     private ProductInfo productInfo ;
-
-//    private InnerVo innerVo ;
-//
-//    public InnerVo getInnerVo() {
-//        return innerVo;
-//    }
-//
-//    public void setInnerVo(InnerVo innerVo) {
-//        this.innerVo = innerVo;
-//    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
 
     public int getId() {
         return id;
@@ -49,7 +32,7 @@ public class TargetBean {
         return productName;
     }
 
-    protected void setProductName(String productName) {
+    public void setProductName(String productName) {
         this.productName = productName;
     }
 
@@ -57,7 +40,7 @@ public class TargetBean {
         return price;
     }
 
-    protected void setPrice(Double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
@@ -65,7 +48,7 @@ public class TargetBean {
         return status;
     }
 
-    protected void setStatus(Integer status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
@@ -73,17 +56,37 @@ public class TargetBean {
         return data;
     }
 
-    protected void setData(byte data) {
+    public void setData(byte data) {
         this.data = data;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public ProductInfo getProductInfo() {
         return productInfo;
     }
 
-    protected void setProductInfo(ProductInfo productInfo) {
+    public void setProductInfo(ProductInfo productInfo) {
         this.productInfo = productInfo;
     }
+
+    //    private InnerVo innerVo ;
+//
+//    public InnerVo getInnerVo() {
+//        return innerVo;
+//    }
+//
+//    public void setInnerVo(InnerVo innerVo) {
+//        this.innerVo = innerVo;
+//    }
+
+
 
 //    public static class InnerVo{
 //        private String innerName ;

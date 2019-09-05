@@ -23,13 +23,12 @@ public class BeanCopyTest {
     public static void main(String[] args) throws Exception {
 
         SourceBean sourceBean = new SourceBean();
-        sourceBean.setId(3);
+        sourceBean.setId(9);
         sourceBean.setProductName("商品名称");
         sourceBean.setPrice(10.54);
         sourceBean.setStatus(5);
         sourceBean.setData(new Byte("1"));
         sourceBean.setCreateTime(new Date());
-
         ProductInfo productInfo = new ProductInfo();
         productInfo.setDesc("这是ProductInfo 描述");
         productInfo.setId(100);
@@ -42,11 +41,11 @@ public class BeanCopyTest {
 
         TargetBean targetBean = new TargetBean();
         TargetBean2 targetBean2 = new TargetBean2();
-        //beanCopyTest(sourceBean, targetBean);
+//        beanCopyTest(sourceBean, targetBean);
 
-        //apacheMap2Bean();
-        //apacheBeanUtil(sourceBean,targetBean2);
-        cglibBeanUtil(sourceBean , targetBean2);
+//        apacheMap2Bean();
+//        apacheBeanUtil(sourceBean,targetBean2);
+//        cglibBeanUtil(sourceBean , targetBean2);
         springBeanUtil(sourceBean , targetBean2);
     }
 
@@ -91,13 +90,14 @@ public class BeanCopyTest {
         param.put("productInfo" , productInfo);
 
         TargetBean2 targetBean = new TargetBean2();
-        ConvertUtils.register(new IntegerConverter(null), Integer.class);
-        ConvertUtils.register(new DoubleConverter(null) , Double.class);
+//        ConvertUtils.register(new IntegerConverter(null), Integer.class);
+//        ConvertUtils.register(new DoubleConverter(null) , Double.class);
         BeanUtils.populate(targetBean , param);
         System.out.println("apache map 方式:"+JSON.toJSONString(targetBean , SerializerFeature.WriteMapNullValue));
     }
 
     public static void apacheBeanUtil(SourceBean sourceBean , TargetBean2 targetBean2) throws Exception{
+
         BeanUtils.copyProperties(sourceBean,targetBean2);
         System.out.println("apache 方式："+JSON.toJSONString(targetBean2 , SerializerFeature.WriteMapNullValue));
     }

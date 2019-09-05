@@ -15,7 +15,7 @@ public class CglibBeanCopy implements IBeanCopy {
 
     @Override
     public void copeBean(SourceBean sourceBean, TargetBean targetBean) {
-        //BeanCopier beanCopier = BeanCopier.create(SourceBean.class , TargetBean.class, false);
+//        BeanCopier beanCopier = BeanCopier.create(SourceBean.class , TargetBean.class, false);
         beanCopier.copy(sourceBean,targetBean,null);
     }
 }

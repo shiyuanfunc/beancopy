@@ -16,5 +16,6 @@ public class JavaBeanCopy implements IBeanCopy {
         targetBean.setStatus(sourceBean.getStatus());
         targetBean.setPrice(sourceBean.getPrice());
         targetBean.setData(sourceBean.getData());
+        targetBean.setProductInfo(sourceBean.getProductInfo());
     }
 }
