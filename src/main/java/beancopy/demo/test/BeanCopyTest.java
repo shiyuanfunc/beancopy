@@ -41,12 +41,13 @@ public class BeanCopyTest {
 
         TargetBean targetBean = new TargetBean();
         TargetBean2 targetBean2 = new TargetBean2();
-//        beanCopyTest(sourceBean, targetBean);
+        beanCopyTest(sourceBean, targetBean);
+
 
 //        apacheMap2Bean();
 //        apacheBeanUtil(sourceBean,targetBean2);
 //        cglibBeanUtil(sourceBean , targetBean2);
-        springBeanUtil(sourceBean , targetBean2);
+//        springBeanUtil(sourceBean , targetBean2);
     }
 
     private static void beanCopyTest(SourceBean sourceBean, TargetBean targetBean) throws Exception {
@@ -67,8 +68,9 @@ public class BeanCopyTest {
 
     public static void test(IBeanCopy beanCopy, SourceBean sourceBean , TargetBean targetBean,int count) throws InvocationTargetException, IllegalAccessException {
         long startTime = System.currentTimeMillis();
-        for (int i = 0 ; i< count; i++){
+        for (int i = 0 ; i< 1; i++){
             beanCopy.copeBean(sourceBean , targetBean);
+            System.out.println(targetBean.getProductInfo() == sourceBean.getProductInfo());
         }
         long endTime = System.currentTimeMillis();
         System.out.println("耗时："+(endTime - startTime));
@@ -78,9 +80,9 @@ public class BeanCopyTest {
     public static void apacheMap2Bean() throws InvocationTargetException, IllegalAccessException {
 
         Map<String, Object> param = new HashMap<>();
-        param.put("id", 1);
+        param.put("id", "");
         param.put("productName", "测试Map2Bean");
-        param.put("price","");
+        //param.put("price","");
         param.put("status","");
         param.put("data",new Byte("1"));
         ProductInfo productInfo = new ProductInfo();

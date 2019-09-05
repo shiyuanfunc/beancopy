@@ -11,7 +11,7 @@ public class TargetBean2 {
 
     public Integer id;
     public String productName;
-    private double price ;
+    private Double price ;
     private int status ;
     private byte data ;
     private Date createTime ;
@@ -41,11 +41,11 @@ public class TargetBean2 {
         this.productName = productName;
     }
 
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
